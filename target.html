@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<div id="user-css">
+
+	</div>
+</head>
+<body>
+	<div id="user-html">
+
+	</div>
+	<div id="errorMsg" style='color:red; font-size: 20px; position: absolute; bottom: 0'></div>
+
+	<script src="node_modules/expect.js/expect.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.expect.min.js"></script>
+	<script>
+	$('#user-html').bind("DOMSubtreeModified",function(){
+	    $expect('pre').to.exist((e) => {
+			document.getElementById('errorMsg').innerHTML = (e)
+				? 'Salah' : 'Bener';
+		});
+	});
+	</script>
+</body>
+</html>
